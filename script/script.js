@@ -163,3 +163,98 @@ const primo = (numero) => {
 console.log(primo(17));
 
 //Ejercicio 13 de JONMIRCHA
+const parOImpar = (num) =>
+  num % 2 === 0 ? "El numero es par" : "El numero es impar";
+console.log(parOImpar(6));
+
+//Ejercicio 14 de JONMIRCHA
+const gradosAF = (num, tipo) =>
+  !tipo
+    ? "Debes ingresar una cadena"
+    : String(tipo).toLocaleLowerCase() === "c"
+    ? `${num}°C son ${Math.floor((num * 9) / 5 + 32)}°F`
+    : String(tipo).toLocaleLowerCase() === "f"
+    ? `${num}°F son ${Math.floor(((num - 32) * 5) / 9)}°C`
+    : "La unidad ingresada es incorrecta";
+
+console.log(gradosAF(8.5, "c"));
+
+//Ejercicio 18 de JONMIRCHA
+const buscarLetras = (texto) => {
+  if (texto === undefined) {
+    return "Debe ingresar una cadena de texto";
+  }
+
+  if (typeof texto !== "string") {
+    return "Debe ingresar una cadena";
+  }
+
+  let coincidencias = texto.match(new RegExp(/[aeiou]/gi));
+
+  return coincidencias.length;
+};
+
+console.log(buscarLetras("Exequiel"));
+
+//Ejercicio 19 de JONMIRCHA
+const validarNombre = (texto) => {
+  if (texto === undefined) {
+    return "Debe ingresar una cadena de texto";
+  }
+
+  if (typeof texto !== "string") {
+    return "Debe ingresar una cadena";
+  }
+
+  let pattern = new RegExp(/^[a-z]+$/i);
+  let coincidencia = pattern.test(texto);
+
+  return `¿Es nombre? ${coincidencia}`;
+};
+
+console.log(validarNombre("Exequiel"));
+
+//Ejercicio 20 de JONMIRCHA
+const validarEmail = (correo) => {
+  if (correo === undefined) {
+    return "Debe ingresar una cadena de texto";
+  }
+
+  if (typeof correo !== "string") {
+    return "Debe ingresar una correo";
+  }
+
+  let pattern = new RegExp(/^[a-z0-9_]+@[a-z0-9_]{2,}\.[a-z]{2,4}$/i);
+  let coincidencia = pattern.test(correo);
+
+  return `¿Es un correo valido? ${coincidencia}`;
+};
+
+console.log(validarEmail("Exequiel2015@g.com"));
+
+//Ejercicio 21 de JONMIRCHA
+const arrayElevado = (numeros) => {
+  if (numeros === undefined) {
+    return "Debe ingresar un array";
+  }
+
+  if (!(numeros instanceof Array)) {
+    return "Se aceptan solo arrays";
+  }
+
+  if (numeros.length === 0) return "El arreglo esta vacio";
+
+  for (let num of numeros) {
+    if (typeof num !== "number") {
+      return "El arreglo ingresado solo debe contener numeros";
+    }
+  }
+
+  return Math.pow(2, numeros);
+};
+
+console.log(arrayElevado());
+console.log(arrayElevado(34));
+console.log(arrayElevado([]));
+console.log(arrayElevado(["a", "b"]));
+console.log(arrayElevado([2, 4, 6, 8]));
